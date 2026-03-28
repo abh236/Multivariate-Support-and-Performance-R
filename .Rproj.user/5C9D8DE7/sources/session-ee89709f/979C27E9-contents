@@ -1,0 +1,30 @@
+library(imputeTestbench)
+library(imputeTS)
+library(zoo)
+library(forecast)
+
+result <- impute_errors(
+  dataIn = ts_missing,
+  methods = c("na_interpolation", "na_locf"),
+  errorParameter = "rmse"
+)
+
+result
+---
+title: "Imputation Benchmark using imputeTestbench"
+author: "Abhishek Kumar"
+output: html_document
+---
+
+## Introduction
+
+This report demonstrates the use of the imputeTestbench package on a real-world time series dataset.
+
+## Dataset
+
+We use the AirPassengers dataset, which contains monthly airline passenger numbers.
+
+```{r}
+data(AirPassengers)
+ts_data <- AirPassengers
+head(ts_data)

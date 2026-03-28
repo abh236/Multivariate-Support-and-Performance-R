@@ -1,0 +1,12 @@
+library(imputeTestbench)
+library(imputeTS)
+library(zoo)
+library(forecast)
+
+result <- impute_errors(
+  dataIn = ts_missing,
+  methods = c("na_interpolation", "na_locf"),
+  errorParameter = "rmse"
+)
+
+result
